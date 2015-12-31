@@ -1,8 +1,6 @@
-class RubberDuck < Duck
-  def initialize
-    self.fly_behavior = FlyNoWay.new
-    self.quack_behavior = Squeak.new
-  end
+class RubberDuck
+  include FlyRocketPowered
+  include Squeak
 
   def display
     puts "I'm a rubber duckie"

@@ -1,4 +1,4 @@
-class FlyNoWay
+module FlyNoWay
   def fly
     puts "I can't fly"
   end

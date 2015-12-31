@@ -1,4 +1,4 @@
-class Squeak
+module Squeak
   def quack
     puts "Squeak"
   end

@@ -1,4 +1,4 @@
-class Quack
+module Quack
   def quack
     puts "Quack"
   end

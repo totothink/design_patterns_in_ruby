@@ -1,8 +1,6 @@
-class DecoyDuck < Duck
-  def initialize
-    self.fly_behavior = FlyNoWay.new
-    self.quack_behavior = MuteQuack.new
-  end
+class DecoyDuck
+  include FlyNoWay
+  include MuteQuack
 
   def display
     puts "I'm a duck Decoy"

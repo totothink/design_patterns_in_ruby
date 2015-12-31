@@ -1,8 +1,6 @@
-class MallardDuck < Duck
-  def initialize
-    self.quack_behavior = Quack.new
-    self.fly_behavior = FlyWithWings.new
-  end
+class MallardDuck
+  include Quack
+  include FlyWithWings
 
   def display
     puts "I'm a real Mallard duck"
