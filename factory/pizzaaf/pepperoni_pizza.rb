@@ -1,16 +1,9 @@
 class PepperoniPizza < Pizza
-  attr_reader :factory
-
-  def initialize(factory)
-    @factory = factory
-  end
-
+  
   def prepare
-    puts "Preparing #{name}"
-    @dough = factory.create_dough
-    @sauce = factory.create_sauce
-    @cheese = factory.create_cheese
-    @veggies = factory.create_veggies
-    @pepperoni = factory.create_pepperoni
+    super
+    @cheese = ingredient_factory.create_cheese
+    @veggies = ingredient_factory.create_veggies
+    @pepperoni = ingredient_factory.create_pepperoni
   end
 end

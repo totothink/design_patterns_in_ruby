@@ -6,7 +6,6 @@ require 'pizza_store'
 require 'black_olives'
 require 'cheese_pizza'
 require 'chicago_pizza_ingredient_factory'
-require 'chicago_pizza_store'
 require 'clam_pizza'
 require 'eggplant'
 require 'fresh_clams'
@@ -16,7 +15,6 @@ require 'marinara_sauce'
 require 'mozzarella_cheese'
 require 'mushroom'
 require 'ny_pizza_ingredient_factory'
-require 'ny_pizza_store'
 require 'onion'
 require 'parmesan_cheese'
 require 'pepperoni_pizza'
@@ -30,9 +28,13 @@ require 'thick_crust_dough'
 require 'thin_crust_dough'
 require 'veggie_pizza'
 
-ny_store = NyPizzaStore.new
+ny_pizza_ingredient_factory = NyPizzaIngredientFactory.new
+chicago_pizza_ingredient_factory = ChicagoPizzaIngredientFactory.new
 
-chicago_store = ChicagoPizzaStore.new
+ny_store = PizzaStore.new(logo: 'New York Style', ingredient_factory: ny_pizza_ingredient_factory)
+chicago_store = PizzaStore.new(logo: 'Chicago Style', ingredient_factory: chicago_pizza_ingredient_factory)
+
+san_francisco_store = PizzaStore.new(logo: 'San Francisco', ingredient_factory: chicago_pizza_ingredient_factory)
 
 pizza = ny_store.order_pizza("cheese")
 
@@ -42,3 +44,6 @@ pizza = chicago_store.order_pizza("cheese")
 
 puts "Joel ordered a #{pizza} \n"
 
+pizza = san_francisco_store.order_pizza("veggie")
+
+puts "Aaron ordered a #{pizza} \n"

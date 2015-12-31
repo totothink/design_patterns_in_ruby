@@ -2,8 +2,14 @@ class Pizza
   attr_accessor :name
   attr_reader :dough, :sauce, :veggies, :cheese, :pepperoni, :clam
 
+  def initialize(ingredient_factory)
+    @ingredient_factory = ingredient_factory
+  end
+
   def prepare
-    
+    puts "Preparing #{name}"
+    @dough = ingredient_factory.create_dough
+    @sauce = ingredient_factory.create_sauce
   end
 
   def bake
@@ -31,5 +37,10 @@ class Pizza
     result << "#{clam}\n" if clam
     result << "#{pepperoni}\n" if pepperoni
     result
+  end
+
+  private
+  def ingredient_factory
+    @ingredient_factory
   end
 end
